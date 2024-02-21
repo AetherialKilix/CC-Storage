@@ -1,0 +1,9 @@
+/backend/node_modules/**
+/frontend/node_modules/**
+
+# ignore .idea
+/.idea/*
+# don't ignore the run configurations
+!/.idea/runConfigurations/
+!/.idea/runConfigurations/*
+!/.idea/runConfigurations/**
