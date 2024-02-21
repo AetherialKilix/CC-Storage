@@ -1,4 +1,4 @@
-require("prevalidation");
+require("./prevalidation");
 const express = require("express");
 const http = require("http");
 const { createProxyMiddleware } = require("http-proxy-middleware");

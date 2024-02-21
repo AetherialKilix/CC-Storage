@@ -13,6 +13,8 @@ import {Chip, Collapse, Dialog, DialogContent, DialogContentText, DialogTitle, G
 import {LockOutlined, Person} from "@mui/icons-material";
 import {useApi} from "./hooks/ApiContext";
 
+const [ defaultPW, defaultEmail ] = process.env.NODE_ENV === "development" ? ["69696969", "test@example.com"] : [];
+
 function ConfirmationDialog({signupEmail, onConfirm}) {
 	const [error, setError] = useState(null);
 	
@@ -113,7 +115,7 @@ export default function SignIn() {
 						autoComplete="email"
 						autoFocus
 						disabled={loading}
-						defaultValue={"kilian.mauler@gmail.com"}
+						defaultValue={defaultEmail}
 					/>
 					<TextField
 						margin="normal"
@@ -131,7 +133,7 @@ export default function SignIn() {
 							setPwShort(e.target.value.length < 8)
 							setPwMismatch(false)
 						}}
-						defaultValue={"69696969"}
+						defaultValue={defaultPW}
 					/>
 					<Collapse in={isSignup}>
 						<TextField
@@ -147,7 +149,7 @@ export default function SignIn() {
 							helperText={pwMismatch ? "Passwords do not match" : undefined}
 							disabled={loading}
 							onChange={() => setPwMismatch(false)}
-							defaultValue={"69696969"}
+							defaultValue={defaultPW}
 						/>
 					</Collapse>
 					<Grid container spacing={2} justifyContent={"space-between"}>
